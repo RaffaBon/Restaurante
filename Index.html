@@ -5,180 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robinho Lanches</title>
 
-  <!-- Google Fonts: Cinzel -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Body com mínimo de altura para fixar o footer */
-    body {
-      background-color: #000;
-      color: #FF6666; /* vermelho fraco para textos */
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* Header */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 50px;
-      background-color: #111;
-    }
-
-    header img {
-      height: 60px;
-    }
-
-    .header-text {
-      flex: 1;
-      text-align: center;
-    }
-
-    .header-text h1 {
-      font-size: 3rem; /* título grande */
-      color: #FF0000; /* vermelho forte */
-      font-family: 'Cinzel', serif; /* fonte italiana, parça */
-    }
-
-    .header-text p {
-      font-size: 1rem;
-      color: #FF6666; /* vermelho fraco para o slogan */
-      font-style: italic;
-    }
-
-    /* Navigation Menu */
-    nav {
-      background-color: #222;
-      padding: 10px 50px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #FF0000; /* vermelho forte para links */
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #FF6666; /* vermelho fraco ao passar o mouse */
-    }
-
-    /* Main Content */
-    main {
-      display: flex;
-      flex: 1; /* ocupa o espaço restante */
-      padding: 20px 50px;
-      gap: 20px;
-    }
-
-    /* Sidebar com imagem inferior e cantos arredondados */
-    .sidebar {
-      flex: 1;
-      background-color: #111;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px; /* cantos arredondados */
-      color: #FF6666; /* texto vermelho fraco */
-    }
-
-    .sidebar h2 {
-      color: #FF0000; /* títulos vermelho forte */
-    }
-
-    .sidebar img {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-    }
-
-    .content {
-      flex: 2;
-      background-color: #222;
-      padding: 20px;
-      border-radius: 15px; /* cantos arredondados */
-      color: #FF6666; /* texto vermelho fraco */
-    }
-
-    .content h2 {
-      color: #FF0000; /* título vermelho forte */
-    }
-
-    /* Footer fixo na parte inferior */
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 20px;
-      margin-top: auto; /* força o footer pro final */
-      color: #FF6666; /* texto vermelho fraco */
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
   <!-- Header -->
   <header>
-    <img src="IMG/RobinhoLanches.png" alt="Logo do Robinho Lanches">
+    <img src="IMG/RobinhoLanches.png" alt="Logo do Robinho Lanches" class="logo">
     <div class="header-text">
       <h1>Robinho Lanches</h1>
       <p>Um restaurante que deixa geral de boca abrida</p>
     </div>
-    <div style="width: 60px;"></div> <!-- espaço pra equilibrar a logo -->
+    <div style="width: 60px;"></div>
   </header>
 
   <!-- Navigation Menu -->
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Cardápio</a></li>
-      <li><a href="#">Reservas</a></li>
-      <li><a href="#">Contato</a></li>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#reservas">Reservas</a></li>
+      <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
-  <main>
-    <div class="sidebar">
-      <h2>Lateral Esquerda</h2>
-      <p>Informações adicionais, promoções ou links úteis.</p>
-      <img src="IMG/Fogo.png" alt="Imagem lateral esquerda">
-    </div>
+  <main id="home">
+    <aside class="sidebar">
+      <h2>🔥 Promoções</h2>
+      <p>Descontos especiais toda sexta e sábado!</p>
+      <img src="IMG/Fogo.png" alt="Chamas decorativas">
+    </aside>
 
-    <div class="content">
-      <h2>Conteúdo Principal</h2>
-      <p>Aqui vai o conteúdo principal do restaurante: pratos, descrições, fotos, etc.</p>
-    </div>
+    <section class="content">
+      <h2 id="cardapio">🍔 Conteúdo Principal</h2>
+      <p>Aqui vai o conteúdo principal do restaurante: pratos, descrições, fotos e muito mais. Tudo pra te deixar de boca abrida!</p>
+      <button class="btn">Ver Cardápio</button>
 
-    <div class="sidebar">
-      <h2>Lateral Direita</h2>
-      <p>Outra área lateral pra destacar promoções ou notícias.</p>
-      <img src="IMG/Fogo.png" alt="Imagem lateral direita">
-    </div>
+      <h2 id="reservas">📅 Reservas</h2>
+      <p>Garanta sua mesa com antecedência para não perder as promoções do Robinho!</p>
+      <button class="btn">Fazer Reserva</button>
+
+      <h2 id="contato">📞 Contato</h2>
+      <p>Fale com a gente pelo WhatsApp ou pelas redes sociais.</p>
+      <button class="btn">Chamar no Whats</button>
+    </section>
+
+    <aside class="sidebar reviews">
+      <h2>⭐ Avaliações</h2>
+
+      <div class="review">
+        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <p>"Melhor lanche da cidade! Atendimento top!"</p>
+        <span>- João Silva</span>
+      </div>
+
+      <div class="review">
+        <p class="stars">⭐⭐⭐⭐</p>
+        <p>"Sanduíche gigante e super saboroso, recomendo!"</p>
+        <span>- Maria Oliveira</span>
+      </div>
+
+      <div class="review">
+        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <p>"Ambiente descontraído, comida incrível e preço justo."</p>
+        <span>- Cristino Ronaldo </span>
+      </div>
+    </aside>
   </main>
 
   <!-- Footer -->
   <footer>
     <p>© 2025 Robinho Lanches. Todos os direitos reservados, amigão!</p>
   </footer>
+
+  <!-- JS -->
+  <script src="JS/script.js"></script>
 </body>
 </html>
