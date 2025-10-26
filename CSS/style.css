@@ -167,7 +167,7 @@ main {
   border-radius: 15px;
   color: #eee;
   box-shadow: 0 4px 12px rgba(255, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.6s ease;
 }
 
 .content:hover {
@@ -195,7 +195,7 @@ main {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .btn:hover {
@@ -214,42 +214,142 @@ footer {
   box-shadow: 0 -2px 8px rgba(255, 0, 0, 0.2);
 }
 
+/* Cardápio grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.menu-card {
+  background: #111;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+  font-size: 1.05rem;
+}
+
+.menu-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.menu-card h3 {
+  color: #ff3333;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.menu-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #ff8080;
+}
+
+/* Reservas Form */
+.form-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+.form-reserva input,
+.form-reserva select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #eee;
+  font-size: 1rem;
+}
+.form-reserva input::placeholder,
+.form-reserva select option {
+  color: #999;
+}
+.reserva-info {
+  margin-top: 15px;
+  color: #ff9999;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Contato Cards */
+.contato-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+}
+.contato-card {
+  flex: 1 1 200px;
+  background: #111;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contato-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(255,0,0,0.5);
+}
+.contato-card h3 {
+  color: #ff3333;
+  margin-bottom: 10px;
+}
+.contato-card p {
+  margin-bottom: 15px;
+  color: #ff8080;
+}
+
+/* Animações sidebars */
+.sidebar-left-hide { animation: slideLeft 0.5s forwards; }
+.sidebar-right-hide { animation: slideRight 0.5s forwards; }
+@keyframes slideLeft { to { transform: translateX(-120%); opacity: 0; } }
+@keyframes slideRight { to { transform: translateX(120%); opacity: 0; } }
+
+.sidebar-left-show { animation: slideInLeft 0.5s forwards; }
+.sidebar-right-show { animation: slideInRight 0.5s forwards; }
+@keyframes slideInLeft { from { transform: translateX(-120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInRight { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+/* Expandir conteúdo central */
+.content-expanded {
+  flex: 1 1 100%;
+  width: 100% !important;
+  animation: expandContent 0.6s forwards;
+}
+@keyframes expandContent {
+  from { flex: 2; width: auto; }
+  to { flex: 1 1 100%; width: 100%; }
+}
+
 /* Responsividade */
 @media (max-width: 900px) {
-  main {
-    flex-direction: column;
-    padding: 20px;
-  }
-  nav ul {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  header {
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-  }
-  .header-text h1 {
-    font-size: 2rem;
-  }
-  .sidebar img {
-    display: none;
-  }
+  main { flex-direction: column; padding: 20px; }
+  nav ul { flex-wrap: wrap; gap: 15px; }
+  header { flex-direction: column; gap: 10px; padding: 20px; }
+  .header-text h1 { font-size: 2rem; }
+  .sidebar img { display: none; }
+}
+@media (max-width: 600px) {
+  .menu-grid { grid-template-columns: 1fr; }
+  .content h2 { font-size: 1.5rem; }
+  .sidebar h2 { font-size: 1.2rem; }
 }
 
-/* Animações */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.review-footer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 8px;
-}
+/* Animações fade */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.fade-out { opacity: 0; transition: opacity 0.3s; }
+.fade-in { opacity: 1; transition: opacity 0.3s; }
